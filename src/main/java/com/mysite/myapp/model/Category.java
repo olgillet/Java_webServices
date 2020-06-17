@@ -1,5 +1,6 @@
 package com.mysite.myapp.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -12,21 +13,23 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Categories")
-public class Category {
+public class Category implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	Integer id;
+	long id;
 	String name	;
 	String nameVN;
 	
+	/*
 	@OneToMany(mappedBy="category", fetch=FetchType.EAGER)
 	List<Product> products;
+	*/
 
-	public Integer getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -46,6 +49,7 @@ public class Category {
 		this.nameVN = nameVN;
 	}
 
+	/*
 	public List<Product> getProducts() {
 		return products;
 	}
@@ -53,4 +57,5 @@ public class Category {
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
+	*/
 }
